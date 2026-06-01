@@ -24,7 +24,10 @@ window.VCT_ARCHIVE = {
       accentContrast: "#050505",
       heroDepth: "#1a0a0a",
       hotStat: "#FF4655",
-      coldStat: "#8E2E37"
+      coldStat: "#8E2E37",
+      heroPattern: "diagonal",
+      heroMood: "洛杉矶的落日余晖，燃烧的赛场",
+      cardGlow: "0 0 30px rgba(255, 70, 85, 0.3)"
     },
     cyan: {
       accent: "#0AC8B9",
@@ -33,7 +36,10 @@ window.VCT_ARCHIVE = {
       accentContrast: "#041312",
       heroDepth: "#071a1a",
       hotStat: "#24E0D1",
-      coldStat: "#2D6E72"
+      coldStat: "#2D6E72",
+      heroPattern: "grid",
+      heroMood: "首尔的霓虹夜色，电子脉冲",
+      cardGlow: "0 0 30px rgba(10, 200, 185, 0.3)"
     },
     gold: {
       accent: "#FFD700",
@@ -42,7 +48,10 @@ window.VCT_ARCHIVE = {
       accentContrast: "#1A1605",
       heroDepth: "#1a1407",
       hotStat: "#FFD700",
-      coldStat: "#8D6D1F"
+      coldStat: "#8D6D1F",
+      heroPattern: "radial",
+      heroMood: "巴黎的荣耀之光，金色殿堂",
+      cardGlow: "0 0 30px rgba(255, 215, 0, 0.3)"
     }
   },
   tableColumns: [
@@ -75,7 +84,7 @@ window.VCT_ARCHIVE = {
       champion: "Evil Geniuses",
       shortChampion: "EG",
       assets: {
-        teamLogo: "teams/2023-eg-logo.svg",
+        teamLogo: "teams/2023-eg-logo.png",
         moments: [
           "moments/2023-eg-1.jpg",
           "moments/2023-eg-2.jpg",
@@ -99,12 +108,13 @@ window.VCT_ARCHIVE = {
         "冠军不是童话，是血与火之后的沉默。"
       ],
       players: [
-        { rank: 1, name: "Demon1", country: "美国", team: "EG", agent: "捷风", portrait: "players/2023/demon1.png", acs: 280, kd: 1.45, adr: 185, kast: "78%", kpr: 0.92, dpr: 0.63, fb: 42, fd: 18, fbsr: 2.33, hs: "32%", clutch: 84, quote: "我就是为此而生的" },
-        { rank: 2, name: "Ethan", country: "美国", team: "EG", agent: "斯凯", portrait: "players/2023/ethan.png", acs: 236, kd: 1.26, adr: 151, kast: "79%", kpr: 0.81, dpr: 0.65, fb: 24, fd: 19, fbsr: 1.26, hs: "24%", clutch: 80, quote: "不退，就是胜利的开始" },
-        { rank: 3, name: "jawgemo", country: "美国", team: "EG", agent: "雷兹", portrait: "players/2023/jawgemo.png", acs: 244, kd: 1.19, adr: 160, kast: "74%", kpr: 0.84, dpr: 0.71, fb: 36, fd: 28, fbsr: 1.29, hs: "21%", clutch: 74, quote: "我要先开第一枪" },
-        { rank: 4, name: "C0M", country: "美国", team: "EG", agent: "猎枭", portrait: "players/2023/c0m.png", acs: 214, kd: 1.11, adr: 136, kast: "77%", kpr: 0.72, dpr: 0.65, fb: 18, fd: 17, fbsr: 1.06, hs: "27%", clutch: 70, quote: "信息就是刀锋" },
-        { rank: 5, name: "Boostio", country: "美国", team: "EG", agent: "奇乐", portrait: "players/2023/boostio.png", acs: 205, kd: 1.02, adr: 130, kast: "75%", kpr: 0.69, dpr: 0.67, fb: 15, fd: 22, fbsr: 0.68, hs: "20%", clutch: 68, quote: "我会带他们走到最后" },
-        { rank: 6, name: "something", country: "俄罗斯", team: "PRX", agent: "捷风", portrait: "players/2023/something.png", acs: 274, kd: 1.31, adr: 176, kast: "73%", kpr: 0.89, dpr: 0.68, fb: 39, fd: 30, fbsr: 1.3, hs: "28%", clutch: 72, quote: "下一发，就是答案" }
+        { rank: 1, name: "Demon1", country: "美国", team: "EG", agent: "捷风", portrait: "players/2023/demon1.jpg", acs: 246, kd: 1.39, adr: 165, kast: "74%", kpr: 0.92, dpr: 0.66, fb: 42, fd: 18, fbsr: 2.33, hs: "40%", clutch: 10, quote: "You can't.", quoteSource: "赛后采访" },
+        { rank: 2, name: "jawgemo", country: "美国", team: "EG", agent: "雷兹", portrait: "players/2023/jawgemo.png", acs: 228, kd: 1.17, adr: 156, kast: "73%", kpr: 0.85, dpr: 0.73, fb: 55, fd: 43, fbsr: 1.28, hs: "20%", clutch: 8, quote: "我会先开第一枪" },
+        { rank: 3, name: "Ethan", country: "美国", team: "EG", agent: "斯凯", portrait: "players/2023/ethan.png", acs: 201, kd: 1.08, adr: 135, kast: "76%", kpr: 0.72, dpr: 0.67, fb: 32, fd: 41, fbsr: 0.78, hs: "22%", clutch: 14, quote: "稳住，就是赢下残局" },
+        { rank: 4, name: "C0M", country: "美国", team: "EG", agent: "猎枭", portrait: "players/2023/c0m.jpeg", acs: 187, kd: 1.05, adr: 122, kast: "74%", kpr: 0.68, dpr: 0.65, fb: 28, fd: 30, fbsr: 0.93, hs: "19%", clutch: 20, quote: "信息就是刀锋" },
+        { rank: 5, name: "Boostio", country: "美国", team: "EG", agent: "奇乐", portrait: "players/2023/boostio.png", acs: 194, kd: 0.97, adr: 128, kast: "72%", kpr: 0.67, dpr: 0.69, fb: 25, fd: 38, fbsr: 0.66, hs: "23%", clutch: 9, quote: "我会带他们走到最后" },
+        { rank: 6, name: "Jinggg", country: "新加坡", team: "PRX", agent: "霓虹", portrait: "players/2023/jinggg.png", acs: 234, kd: 1.05, adr: 158, kast: "68%", kpr: 0.82, dpr: 0.78, fb: 72, fd: 48, fbsr: 1.50, hs: "22%", clutch: 7, quote: "快攻就是我们的语言" },
+        { rank: 7, name: "something", country: "俄罗斯", team: "PRX", agent: "捷风", portrait: "players/2023/something.png", acs: 212, kd: 1.02, adr: 141, kast: "71%", kpr: 0.79, dpr: 0.77, fb: 58, fd: 45, fbsr: 1.29, hs: "27%", clutch: 6, quote: "下一发，就是答案" }
       ]
     },
     2024: {
@@ -113,7 +123,7 @@ window.VCT_ARCHIVE = {
       champion: "EDward Gaming",
       shortChampion: "EDG",
       assets: {
-        teamLogo: "teams/2024-edg-logo.svg",
+        teamLogo: "teams/2024-edg-logo.png",
         moments: [
           "moments/2024-edg-1.jpg",
           "moments/2024-edg-2.jpg",
@@ -137,50 +147,52 @@ window.VCT_ARCHIVE = {
         "这一冠，替无数个不眠夜作证。"
       ],
       players: [
-        { rank: 1, name: "ZmjjKK", country: "中国", team: "EDG", agent: "捷风", portrait: "players/2024/zmjjkk.png", acs: 287, kd: 1.38, adr: 182, kast: "77%", kpr: 0.94, dpr: 0.68, fb: 44, fd: 23, fbsr: 1.91, hs: "31%", clutch: 86, quote: "准星会替我说话" },
-        { rank: 2, name: "CHICHOO", country: "中国", team: "EDG", agent: "奇乐", portrait: "players/2024/chichoo.png", acs: 231, kd: 1.24, adr: 149, kast: "80%", kpr: 0.78, dpr: 0.63, fb: 18, fd: 16, fbsr: 1.13, hs: "26%", clutch: 83, quote: "稳住，就是赢下残局" },
-        { rank: 3, name: "Smoggy", country: "中国", team: "EDG", agent: "雷兹", portrait: "players/2024/smoggy.png", acs: 248, kd: 1.21, adr: 159, kast: "76%", kpr: 0.82, dpr: 0.68, fb: 34, fd: 25, fbsr: 1.36, hs: "23%", clutch: 76, quote: "给我空间，我会终结" },
-        { rank: 4, name: "nobody", country: "中国", team: "EDG", agent: "猎枭", portrait: "players/2024/nobody.png", acs: 219, kd: 1.14, adr: 142, kast: "79%", kpr: 0.75, dpr: 0.66, fb: 21, fd: 18, fbsr: 1.17, hs: "25%", clutch: 78, quote: "情报落地，节奏就归我们" },
-        { rank: 5, name: "S1Mon", country: "中国", team: "EDG", agent: "欧门", portrait: "players/2024/s1mon.png", acs: 207, kd: 1.03, adr: 132, kast: "75%", kpr: 0.69, dpr: 0.67, fb: 12, fd: 17, fbsr: 0.71, hs: "20%", clutch: 70, quote: "烟雾后面，是计划本身" },
-        { rank: 6, name: "Meteor", country: "韩国", team: "GEN", agent: "雷兹", portrait: "players/2024/meteor.png", acs: 263, kd: 1.29, adr: 170, kast: "74%", kpr: 0.87, dpr: 0.67, fb: 37, fd: 29, fbsr: 1.28, hs: "29%", clutch: 74, quote: "舞台越大，越要向前" }
+        { rank: 1, name: "ZmjjKK", country: "中国", team: "EDG", agent: "霓虹", portrait: "players/2024/zmjjkk.png", acs: 251, kd: 1.20, adr: 163, kast: "71%", kpr: 0.87, dpr: 0.72, fb: 105, fd: 85, fbsr: 1.24, hs: "19%", clutch: 9, quote: "准星会替我说话" },
+        { rank: 2, name: "CHICHOO", country: "中国", team: "EDG", agent: "奇乐", portrait: "players/2024/chichoo.png", acs: 226, kd: 0.96, adr: 150, kast: "72%", kpr: 0.71, dpr: 0.74, fb: 45, fd: 52, fbsr: 0.87, hs: "24%", clutch: 10, quote: "我就是那个答案" },
+        { rank: 3, name: "Smoggy", country: "中国", team: "EDG", agent: "雷兹", portrait: "players/2024/smoggy.png", acs: 191, kd: 0.94, adr: 134, kast: "74%", kpr: 0.67, dpr: 0.71, fb: 38, fd: 45, fbsr: 0.84, hs: "21%", clutch: 7, quote: "给我空间，我会终结" },
+        { rank: 4, name: "nobody", country: "中国", team: "EDG", agent: "猎枭", portrait: "players/2024/nobody.png", acs: 165, kd: 0.91, adr: 108, kast: "70%", kpr: 0.59, dpr: 0.65, fb: 35, fd: 42, fbsr: 0.83, hs: "25%", clutch: 6, quote: "情报落地，节奏就归我们" },
+        { rank: 5, name: "S1Mon", country: "中国", team: "EDG", agent: "欧门", portrait: "players/2024/s1mon.png", acs: 163, kd: 0.90, adr: 113, kast: "73%", kpr: 0.60, dpr: 0.67, fb: 28, fd: 38, fbsr: 0.74, hs: "22%", clutch: 5, quote: "烟雾后面，是计划本身" },
+        { rank: 6, name: "Wo0t", country: "土耳其", team: "TH", agent: "幽影", portrait: "players/2024/wo0t.png", acs: 198, kd: 1.14, adr: 152, kast: "69%", kpr: 0.78, dpr: 0.68, fb: 48, fd: 42, fbsr: 1.14, hs: "23%", clutch: 8, quote: "我们会回来的" },
+        { rank: 7, name: "MiniBoo", country: "法国", team: "TH", agent: "捷风", portrait: "players/2024/miniboo.png", acs: 187, kd: 1.08, adr: 145, kast: "71%", kpr: 0.74, dpr: 0.69, fb: 52, fd: 48, fbsr: 1.08, hs: "27%", clutch: 6, quote: "高光时刻即将来临" }
       ]
     },
     2025: {
       year: "2025",
       location: "巴黎",
-      champion: "Sentinels",
-      shortChampion: "SEN",
+      champion: "NRG Esports",
+      shortChampion: "NRG",
       assets: {
-        teamLogo: "teams/2025-sen-logo.svg",
+        teamLogo: "teams/2025-nrg-logo.png",
         moments: [
-          "moments/2025-sen-1.jpg",
-          "moments/2025-sen-2.jpg",
-          "moments/2025-sen-3.jpg"
+          "moments/2025-nrg-1.png",
+          "moments/2025-nrg-2.jpg",
+          "moments/2025-nrg-3.jpg"
         ]
       },
-      mvp: "TenZ",
-      date: "2025.08.05 - 08.30",
-      timelineDate: "08.05 - 08.30",
+      mvp: "brawk",
+      date: "2025.09.12 - 10.05",
+      timelineDate: "09.12 - 10.05",
       theme: "gold",
       stopAccent: "#FFD700",
-      result: "总决赛：SEN 3 - 2 FNC",
+      result: "总决赛：NRG 3 - 2 FNC",
       moments: [
-        "巴黎雨夜，SEN 完成逆转",
-        "TenZ 在决胜图打出传奇残局",
-        "金色雨落下时，全场沸腾"
+        "NRG 绝境逆转夺得巴黎冠军",
+        "Ethan 成就史上首位两次夺冠选手",
+        "brawk 首秀国际赛场即获 MVP"
       ],
       echoes: [
-        "这不是回归，这是王者宣言。",
-        "有人在巴黎封神，也有人在巴黎告别。",
-        "冠军奖杯从不记得亚军的眼泪。"
+        "他们拒绝坠落，他们把命运按在地上。",
+        "每一发子弹都在回答质疑。",
+        "冠军不是童话，是血与火之后的沉默。"
       ],
       players: [
-        { rank: 1, name: "TenZ", country: "加拿大", team: "SEN", agent: "捷风", portrait: "players/2025/tenz.png", acs: 291, kd: 1.41, adr: 188, kast: "79%", kpr: 0.96, dpr: 0.68, fb: 47, fd: 24, fbsr: 1.96, hs: "34%", clutch: 88, quote: "最后一图，我只看准星" },
-        { rank: 2, name: "zekken", country: "美国", team: "SEN", agent: "雷兹", portrait: "players/2025/zekken.png", acs: 276, kd: 1.32, adr: 177, kast: "76%", kpr: 0.91, dpr: 0.69, fb: 41, fd: 29, fbsr: 1.41, hs: "27%", clutch: 79, quote: "我会一直冲到终点" },
-        { rank: 3, name: "johnqt", country: "摩洛哥", team: "SEN", agent: "幽影", portrait: "players/2025/johnqt.png", acs: 224, kd: 1.18, adr: 145, kast: "80%", kpr: 0.76, dpr: 0.64, fb: 19, fd: 17, fbsr: 1.12, hs: "25%", clutch: 81, quote: "指挥不是声音，是方向" },
-        { rank: 4, name: "Sacy", country: "巴西", team: "SEN", agent: "斯凯", portrait: "players/2025/sacy.png", acs: 216, kd: 1.11, adr: 139, kast: "81%", kpr: 0.73, dpr: 0.66, fb: 15, fd: 14, fbsr: 1.07, hs: "24%", clutch: 80, quote: "经验就是关键回合的呼吸" },
-        { rank: 5, name: "Zellsis", country: "美国", team: "SEN", agent: "蝰蛇", portrait: "players/2025/zellsis.png", acs: 211, kd: 1.05, adr: 134, kast: "77%", kpr: 0.7, dpr: 0.67, fb: 14, fd: 19, fbsr: 0.74, hs: "22%", clutch: 73, quote: "我在脏活里拿胜利" },
-        { rank: 6, name: "Derke", country: "芬兰", team: "FNC", agent: "捷风", portrait: "players/2025/derke.png", acs: 279, kd: 1.34, adr: 181, kast: "75%", kpr: 0.9, dpr: 0.67, fb: 43, fd: 32, fbsr: 1.34, hs: "31%", clutch: 76, quote: "我想把奖杯留在欧洲" }
+        { rank: 1, name: "brawk", country: "美国", team: "NRG", agent: "苏法", portrait: "players/2025/brawk.png", acs: 267, kd: 1.18, adr: 168, kast: "75%", kpr: 0.89, dpr: 0.75, fb: 58, fd: 42, fbsr: 1.38, hs: "18%", clutch: 8, quote: "我只想赢得胜利" },
+        { rank: 2, name: "Ethan", country: "美国", team: "NRG", agent: "凯亚/隐者", portrait: "players/2025/ethan.png", acs: 248, kd: 1.12, adr: 155, kast: "78%", kpr: 0.82, dpr: 0.73, fb: 48, fd: 45, fbsr: 1.07, hs: "22%", clutch: 6, quote: "我证明了我能两次做到", quoteSource: "赛后采访" },
+        { rank: 3, name: "s0m", country: "美国", team: "NRG", agent: "亚格波/奥丁", portrait: "players/2025/s0m.png", acs: 231, kd: 1.05, adr: 148, kast: "77%", kpr: 0.78, dpr: 0.74, fb: 42, fd: 48, fbsr: 0.88, hs: "25%", clutch: 5, quote: "这只是开始" },
+        { rank: 4, name: "mada", country: "加拿大", team: "NRG", agent: "雷兹/亚淘宝", portrait: "players/2025/mada.png", acs: 225, kd: 1.02, adr: 152, kast: "72%", kpr: 0.81, dpr: 0.79, fb: 55, fd: 52, fbsr: 1.06, hs: "32%", clutch: 4, quote: "准备充分就不会紧张" },
+        { rank: 5, name: "skuba", country: "美国", team: "NRG", agent: "薇丝/港主", portrait: "players/2025/skuba.png", acs: 218, kd: 1.08, adr: 138, kast: "74%", kpr: 0.75, dpr: 0.69, fb: 38, fd: 35, fbsr: 1.09, hs: "28%", clutch: 7, quote: "信任队友就足够了" },
+        { rank: 6, name: "Alfajer", country: "土耳其", team: "FNC", agent: "圣祁", portrait: "players/2025/alfajer.png", acs: 241, kd: 1.15, adr: 158, kast: "71%", kpr: 0.84, dpr: 0.73, fb: 62, fd: 48, fbsr: 1.29, hs: "30%", clutch: 9, quote: "我会继续战斗" },
+        { rank: 7, name: "kaajak", country: "波兰", team: "FNC", agent: "幽探", portrait: "players/2025/kaajak.png", acs: 229, kd: 1.09, adr: 151, kast: "70%", kpr: 0.80, dpr: 0.73, fb: 58, fd: 52, fbsr: 1.12, hs: "35%", clutch: 7, quote: "我们会回来的" }
       ]
     }
   }

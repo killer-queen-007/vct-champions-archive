@@ -27,11 +27,13 @@
 
   <main>
     <section id="hero" class="hero reveal-section">
+      <div class="hero-watermark" id="heroWatermark">EG</div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <p class="hero-kicker">2023 - 2025 无畏契约冠军赛档案</p>
         <h1>一击定乾坤</h1>
         <p class="hero-subtitle">ONE SHOT. ONE LEGACY.</p>
+        <p class="hero-mood" id="heroMood">洛杉矶的落日余晖，燃烧的赛场</p>
       </div>
       <a class="scroll-down" href="#years" aria-label="向下滚动">
         <span></span>
@@ -59,7 +61,8 @@
         <p class="hall-line">MVP：<strong id="championMvp">Demon1</strong> <span class="agent-sign">✦ 签名特工位</span></p>
         <p id="championResult" class="hall-line">总决赛：EG 3 - 1 PRX</p>
         <p id="championDate" class="hall-line muted">2023.08.06 - 08.26</p>
-        <blockquote id="momentQuote" class="hall-quote">“EG 从败者组一穿五夺冠”</blockquote>
+        <blockquote id="momentQuote" class="hall-quote">"EG 从败者组一穿五夺冠"</blockquote>
+        <div id="momentGallery" class="moment-gallery"></div>
       </div>
     </section>
 
@@ -119,7 +122,7 @@
       <div class="card-front">
         <div class="portrait-placeholder"></div>
         <div class="player-info">
-          <p class="player-name-row"><span class="medal"></span><span class="player-name"></span></p>
+          <p class="player-name-row"><span class="player-name"></span></p>
           <p class="player-meta"></p>
           <p class="player-agent"></p>
         </div>
@@ -132,7 +135,113 @@
     </article>
   </template>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+  <div id="playerModal" class="player-modal" role="dialog" aria-modal="true" aria-labelledby="modalPlayerName">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="关闭">&times;</button>
+      <div class="modal-header">
+        <div class="modal-portrait"></div>
+        <div class="modal-info">
+          <span class="modal-rank-badge"></span>
+          <h2 id="modalPlayerName" class="modal-player-name"></h2>
+          <p class="modal-player-meta"></p>
+          <p class="modal-agent"></p>
+        </div>
+      </div>
+      <div class="modal-stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">ACS</span>
+          <span class="stat-value" data-stat="acs"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">K/D</span>
+          <span class="stat-value" data-stat="kd"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">ADR</span>
+          <span class="stat-value" data-stat="adr"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">KAST%</span>
+          <span class="stat-value" data-stat="kast"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">KPR</span>
+          <span class="stat-value" data-stat="kpr"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">DPR</span>
+          <span class="stat-value" data-stat="dpr"></span>
+        </div>
+        <div class="stat-card stat-hot">
+          <span class="stat-label">首杀(FB)</span>
+          <span class="stat-value" data-stat="fb"></span>
+        </div>
+        <div class="stat-card stat-cold">
+          <span class="stat-label">首死(FD)</span>
+          <span class="stat-value" data-stat="fd"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">FBSR</span>
+          <span class="stat-value" data-stat="fbsr"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">爆头率</span>
+          <span class="stat-value" data-stat="hs"></span>
+        </div>
+      </div>
+      <div class="modal-quote-section">
+        <blockquote class="modal-quote"></blockquote>
+        <cite class="modal-quote-source"></cite>
+      </div>
+    </div>
+  </div>
+
+  <div id="musicPlayer" class="music-player">
+    <div class="music-player-collapsed">
+      <div class="music-wave">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <button class="music-toggle" aria-label="展开播放器">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
+    <div class="music-player-expanded">
+      <div class="music-info">
+        <span class="music-year"></span>
+        <span class="music-title"></span>
+        <span class="music-artist"></span>
+      </div>
+      <div class="music-controls">
+        <button class="music-btn music-prev" aria-label="上一首">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+        <button class="music-btn music-play" aria-label="播放">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <button class="music-btn music-next" aria-label="下一首">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+      </div>
+      <div class="music-progress">
+        <span class="music-time music-current">0:00</span>
+        <div class="music-progress-bar">
+          <div class="music-progress-fill"></div>
+        </div>
+        <span class="music-time music-duration">0:00</span>
+      </div>
+      <div class="music-volume">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <input type="range" class="music-volume-slider" min="0" max="100" value="70" aria-label="音量">
+      </div>
+      <button class="music-close" aria-label="收起播放器">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="data.js?v=2025060101"></script>
+  <script src="script.js?v=2025060101"></script>
 </body>
 </html>
