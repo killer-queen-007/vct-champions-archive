@@ -3,16 +3,21 @@
   --bg-secondary: #111111;
   --bg-glass: rgba(255, 255, 255, 0.03);
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --accent-red: #FF4655;
-  --accent-cyan: #0AC8B9;
-  --accent-gold: #FFD700;
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255, 255, 255, 0.6);
   --text-muted: rgba(255, 255, 255, 0.35);
   --font-display: "Inter", "Noto Sans SC", sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
-  --theme-accent: var(--accent-red);
-  --theme-soft: rgba(255, 70, 85, 0.22);
+  --theme-accent: #FF4655;
+  --theme-soft: rgba(255, 70, 85, 0.24);
+  --theme-glow: rgba(255, 70, 85, 0.45);
+  --theme-contrast: #050505;
+  --hero-depth: #1a0a0a;
+  --stat-hot: #FF4655;
+  --stat-cold: #8E2E37;
+  --rank-gold: #FFD700;
+  --rank-silver: #C0C0C0;
+  --rank-bronze: #CD7F32;
 }
 
 *,
@@ -35,21 +40,6 @@ body {
   line-height: 1.6;
   transition: background-color 0.6s ease, color 0.6s ease;
   overflow-x: hidden;
-}
-
-body[data-theme="red"] {
-  --theme-accent: var(--accent-red);
-  --theme-soft: rgba(255, 70, 85, 0.25);
-}
-
-body[data-theme="cyan"] {
-  --theme-accent: var(--accent-cyan);
-  --theme-soft: rgba(10, 200, 185, 0.22);
-}
-
-body[data-theme="gold"] {
-  --theme-accent: var(--accent-gold);
-  --theme-soft: rgba(255, 215, 0, 0.2);
 }
 
 a,
@@ -135,7 +125,7 @@ select:focus-visible {
 
 .year-btn:hover,
 .year-btn.active {
-  color: #050505;
+  color: var(--theme-contrast);
   border-color: transparent;
   background: var(--theme-accent);
   box-shadow: 0 0 0 1px var(--theme-soft), 0 0 22px var(--theme-soft), inset 0 0 8px rgba(255, 255, 255, 0.2);
@@ -185,7 +175,7 @@ select:focus-visible {
   place-items: center;
   background:
     radial-gradient(circle at 50% 25%, var(--theme-soft), transparent 45%),
-    linear-gradient(180deg, #0A0A0A 0%, #1a0a0a 100%);
+    linear-gradient(180deg, #0A0A0A 0%, var(--hero-depth) 100%);
 }
 
 .hero-overlay {
@@ -263,7 +253,7 @@ select:focus-visible {
   left: 12%;
   right: 12%;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255, 70, 85, 0.3), rgba(10, 200, 185, 0.3), rgba(255, 215, 0, 0.3));
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
 }
 
 .year-stop {
@@ -283,6 +273,7 @@ select:focus-visible {
   font-size: 30px;
   font-weight: 800;
   margin-bottom: 6px;
+  color: var(--stop-accent, var(--theme-accent));
 }
 
 .year-stop .stop-city,
@@ -291,10 +282,6 @@ select:focus-visible {
   display: block;
   color: var(--text-secondary);
 }
-
-.year-stop[data-year="2023"] .stop-year { color: var(--accent-red); }
-.year-stop[data-year="2024"] .stop-year { color: var(--accent-cyan); }
-.year-stop[data-year="2025"] .stop-year { color: var(--accent-gold); }
 
 .year-stop.active {
   border-color: var(--theme-accent);
@@ -335,6 +322,10 @@ select:focus-visible {
   box-shadow: 0 0 12px var(--theme-soft), inset 0 0 18px rgba(255, 255, 255, 0.07);
   font-weight: 700;
   letter-spacing: 0.08em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
 .moment-dots {
@@ -435,6 +426,13 @@ select:focus-visible {
   background:
     radial-gradient(circle at 20% 20%, var(--theme-soft), transparent 45%),
     linear-gradient(135deg, #1d1d1d, #121212);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.player-card[data-interaction-mode="expand"] {
+  cursor: pointer;
 }
 
 .player-info {
@@ -548,7 +546,7 @@ select:focus-visible {
   top: 10px;
   bottom: 10px;
   width: 3px;
-  background: var(--accent-red);
+  background: var(--theme-accent);
   transform: translateX(-5px);
   opacity: 0;
   transition: transform 0.25s ease, opacity 0.25s ease;
@@ -563,26 +561,26 @@ select:focus-visible {
   opacity: 1;
 }
 
-.fb-cell {
-  color: var(--accent-red);
+.data-table [data-cell-variant="hot"] {
+  color: var(--stat-hot);
 }
 
-.fd-cell {
-  color: #8e2e37;
+.data-table [data-cell-variant="cold"] {
+  color: var(--stat-cold);
 }
 
 .rank-top1,
 .rank-top2,
 .rank-top3 {
-  color: #050505;
+  color: var(--theme-contrast);
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 3px;
 }
 
-.rank-top1 { background: #FFD700; }
-.rank-top2 { background: #C0C0C0; }
-.rank-top3 { background: #CD7F32; }
+.rank-top1 { background: var(--rank-gold); }
+.rank-top2 { background: var(--rank-silver); }
+.rank-top3 { background: var(--rank-bronze); }
 
 .pagination {
   margin-top: 14px;
@@ -600,7 +598,7 @@ select:focus-visible {
 
 .page-btn.active {
   background: var(--theme-accent);
-  color: #060606;
+  color: var(--theme-contrast);
   border-color: transparent;
 }
 

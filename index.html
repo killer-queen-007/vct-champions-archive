@@ -9,16 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-theme="red">
+<body>
   <header class="site-nav-wrap">
     <nav id="siteNav" class="site-nav" aria-label="主导航">
       <a class="logo" href="#hero">VCT ARCHIVE</a>
       <button id="menuToggle" class="menu-toggle" aria-label="打开菜单" aria-expanded="false">菜单</button>
-      <div id="yearControls" class="year-controls nav-year-controls">
-        <button class="year-btn active" data-year="2023" type="button">2023</button>
-        <button class="year-btn" data-year="2024" type="button">2024</button>
-        <button class="year-btn" data-year="2025" type="button">2025</button>
-      </div>
+      <div id="yearControls" class="year-controls nav-year-controls"></div>
       <div id="mobileMenu" class="mobile-menu">
         <a href="#years">年份穿梭</a>
         <a href="#hall">冠军殿堂</a>
@@ -47,26 +43,7 @@
         <h2>年份穿梭器</h2>
         <p>冠军是一条不可回头的铁轨，每一站都镌刻着代价与荣耀。</p>
       </div>
-      <div id="yearTimeline" class="year-timeline">
-        <button class="year-stop active" data-year="2023" type="button">
-          <span class="stop-year">2023</span>
-          <span class="stop-city">洛杉矶</span>
-          <span class="stop-team">EG</span>
-          <span class="stop-date">08.06 - 08.26</span>
-        </button>
-        <button class="year-stop" data-year="2024" type="button">
-          <span class="stop-year">2024</span>
-          <span class="stop-city">首尔</span>
-          <span class="stop-team">EDG</span>
-          <span class="stop-date">08.01 - 08.25</span>
-        </button>
-        <button class="year-stop" data-year="2025" type="button">
-          <span class="stop-year">2025</span>
-          <span class="stop-city">巴黎</span>
-          <span class="stop-team">SEN</span>
-          <span class="stop-date">08.05 - 08.30</span>
-        </button>
-      </div>
+      <div id="yearTimeline" class="year-timeline"></div>
     </section>
 
     <section id="hall" class="hall section reveal-section transition-target">
@@ -101,33 +78,11 @@
       </div>
       <div class="data-controls">
         <input id="searchInput" type="search" placeholder="搜索选手名或队伍..." aria-label="搜索选手">
-        <select id="sortSelect" aria-label="排序字段">
-          <option value="acs">ACS</option>
-          <option value="kd">K/D</option>
-          <option value="fb">首杀</option>
-          <option value="kastValue">回合参与率</option>
-        </select>
+        <select id="sortSelect" aria-label="排序字段"></select>
       </div>
       <div class="table-wrap">
         <table class="data-table">
-          <thead>
-            <tr>
-              <th>排名</th>
-              <th>选手</th>
-              <th>队伍</th>
-              <th>特工</th>
-              <th>ACS</th>
-              <th>K/D</th>
-              <th>ADR</th>
-              <th>KAST%</th>
-              <th>KPR</th>
-              <th>DPR</th>
-              <th>首杀(FB)</th>
-              <th>首死(FD)</th>
-              <th>FBSR</th>
-              <th>爆头率(HS%)</th>
-            </tr>
-          </thead>
+          <thead id="tableHead"></thead>
           <tbody id="tableBody"></tbody>
         </table>
       </div>
@@ -177,6 +132,7 @@
     </article>
   </template>
 
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
